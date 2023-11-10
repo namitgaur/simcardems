@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Simula Cardiac Electro-Mechanics Solver" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Oct 26, 2023"/>
+    <meta name="docbuild:last-update" content="Nov 10, 2023"/>
   </head>
   
   
@@ -330,7 +330,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -346,6 +348,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-and-running-simcardems-on-windows-os">Installing and running simcardems on Windows OS</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -365,6 +375,22 @@ which are both python packages based on the legacy version of the open source fi
 <li><p><code class="docutils literal notranslate"><span class="pre">simcardems</span></code> is also available on <a class="reference external" href="https://pypi.org/project/simcardems/">PyPI</a> and can be installed with <a class="reference internal" href="install_pip.html"><span class="doc std std-doc">pip</span></a>.
 This option is recommended for developers who want to contribute to the software, but requires installation of the dependencies.</p></li>
 </ul>
+<section id="installing-and-running-simcardems-on-windows-os">
+<h2>Installing and running simcardems on Windows OS<a class="headerlink" href="#installing-and-running-simcardems-on-windows-os" title="Permalink to this heading">#</a></h2>
+<p>Steps</p>
+<ol class="arabic simple">
+<li><p>Install a complete Ubuntu terminal environment in Windows Subsystem for Linux (WSL) from Microsoft store</p></li>
+<li><p>Install docker on WSL. sudo apt install docker</p></li>
+<li><p>Create a simcardems container using docker
+docker run –name simcardems -v “$(pwd)”:/app -p 8501:8501 -dit <a class="reference external" href="http://ghcr.io/computationalphysiology/simcardems">ghcr.io/computationalphysiology/simcardems</a></p></li>
+<li><p>Open a shell environment. docker exec -it simcardems bash</p></li>
+<li><p>Run scripts eg. python3 simple_demo.py. Delete results folder for each run in WSL and Windows system before running the simulations</p></li>
+<li><p>Move results folder from WSL to windows system</p></li>
+<li><p>Visualize xdmf files by importing into Paraview</p></li>
+<li><p>To start or stop containers docker start simcardems or docker stop simcardems</p></li>
+<li><p>To remove container docker rm simcardems</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -422,6 +448,20 @@ This option is recommended for developers who want to contribute to the software
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-and-running-simcardems-on-windows-os">Installing and running simcardems on Windows OS</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -449,7 +489,7 @@ By Simula Research Laboratory
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Oct 26, 2023.
+  Last updated on Nov 10, 2023.
   <br/>
 </p>
   </div>
@@ -467,8 +507,8 @@ By Simula Research Laboratory
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
