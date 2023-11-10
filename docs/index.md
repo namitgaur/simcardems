@@ -9,8 +9,8 @@ The source code can be found on [GitHub](https://github.com/ComputationalPhysiol
 
 
 ## Contents
-```{tableofcontents}
-```
+{tableofcontents}
+
 
 ## License
 `simcardems` is licensed under the GNU LGPL, version 2.1 or (at your option) any later version.
